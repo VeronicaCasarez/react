@@ -1,14 +1,21 @@
+
+import {useParams} from 'react-router-dom';
 import NavBar from "../componentes/NavBar";
 import ItemDetailContainer from "../componentes/ItemDetailContainer";
 
+
 function ItemRoot(){
-    return(
-        <div>
-            
-            <NavBar/>
-            <h1 style={{fontSize:"20px"}} >Estoy en el item detail container</h1>
-            <ItemDetailContainer/>
-        </div>
+    const parameters=useParams();
+
+        return (
+            <div>
+               
+                <NavBar/>
+                <h1>Estas en el detalle del producto</h1>
+                <ItemDetailContainer itemId={parameters.id}/>
+               
+                           
+            </div>
     )
 }
 

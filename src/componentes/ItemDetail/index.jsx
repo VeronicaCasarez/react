@@ -1,11 +1,21 @@
-const ItemDetail = ({ item }) => {
+
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+const ItemDetail = ({ item}) => {
+  console.log({item})
     return (
-      <div>
-        <h2>{item.name}</h2>
-        <img src={item.image} alt={item.name} />
-        <p>{item.description}</p>
-        <p>Precio: ${item.price}</p>
-      </div>
+      <Card style={{ width: '18rem' }}>
+      <Card.Img variant="top" src={item.image} />
+      <Card.Body>
+        <Card.Title>{item.title}</Card.Title>
+       
+        <Card.Text>{item.name}</Card.Text>
+        <Button variant="primary">
+         Comprar
+        </Button>
+
+      </Card.Body>
+    </Card>
     );
   };
   

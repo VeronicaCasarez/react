@@ -1,7 +1,7 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useId,useState, useEffect } from 'react';
 import ItemList from '../ItemList';
-import products from '../../mocks/products';
+import Products from '../../mocks/products';
 
 // import ItemCount from "../ItemCount";
 import "./itemListContainer.css";
@@ -16,7 +16,7 @@ function ItemListContainer ({greeting,categoryId, isCategoryRoute}){
 
     useEffect(() => {
       const promise = new Promise((resolve, reject) =>
-        setTimeout(() => resolve(products), 2000)
+        setTimeout(() => resolve(Products), 2000)
       );
       promise
       .then((response) => {
@@ -27,6 +27,8 @@ function ItemListContainer ({greeting,categoryId, isCategoryRoute}){
       })
       .catch((error) => alert(error));
    }, [categoryId, isCategoryRoute]);
+
+
 
 
 

@@ -1,21 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, {  useState, useEffect } from 'react';
 import ItemDetail from '../ItemDetail';
-import products from '../../mocks/products';
+import Products from '../../mocks/products';
 
-const ItemDetailContainer = () => {
-  const [item, setItem] = useState(products[0]);
+function ItemDetailContainer({ itemId }) {
+ 
+  const [product,setProduct]=useState([Products])
 
-  useEffect(() => {
-    setTimeout(() => {
-      setItem(products[0]);
-    }, 2000);
-  }, []);
+
+  useEffect(()=>{
+    const productPromise=new Promise((resolve, reject) => 
+      setTimeout(()=> resolve(Products),2000)
+    );
+  
+    productPromise
+    .then ((response)=>{ 
+      const productSearch=response.find(elem=>elem.id==itemId)
+      setProduct(productSearch);
+      })
+    .catch((error)=>console.log(error))
+    },[itemId]);
+ 
+  
 
   return (
     <div>
-      <ItemDetail item={item} />
+      <ItemDetail item={product} />
+      
     </div>
   );
-};
+}
+
 
 export default ItemDetailContainer;
