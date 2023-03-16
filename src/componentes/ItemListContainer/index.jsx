@@ -29,10 +29,6 @@ function ItemListContainer ({greeting,categoryId, isCategoryRoute}){
    }, [categoryId, isCategoryRoute]);
 
 
-
-
-
-
     return(
      <div>
         <div className="greeting">{greeting}</div>
