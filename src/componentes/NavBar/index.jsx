@@ -4,24 +4,26 @@ import "./navBar.css";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import logo from "../../assets/images/logo-sweet-world.png"
 
 import { NavLink } from "react-router-dom";
+
 
 function NavBar(){
     return (
         
            <Navbar sticky="top" bg="light" variant="light">
         <Container>
-          <Navbar.Brand href="#home"><NavLink to={'/'} >Logo</NavLink> </Navbar.Brand>
+          <Navbar.Brand href="#home"><NavLink to={'/'} ><img className="logo-style" src={logo} alt="Logo" /></NavLink> </Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link >
-              <NavLink to={'/category/puma'}>Puma</NavLink>
+              <NavLink to={'/category/chocolates'}>Chocolates</NavLink>
             </Nav.Link>
             <Nav.Link >
-              <NavLink to={'/category/nike'}>Nike</NavLink>
+              <NavLink to={'/category/alfajores'}>Alfajores</NavLink>
             </Nav.Link>
             <Nav.Link >
-              <NavLink to={'/category/adidas'}>Adidas</NavLink>
+              <NavLink to={'/category/patagonicos'}>Patagonicos</NavLink>
             </Nav.Link>
           </Nav>
           <CardWidget/>

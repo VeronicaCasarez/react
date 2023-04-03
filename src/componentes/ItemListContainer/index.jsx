@@ -3,14 +3,9 @@ import React, { useId,useState, useEffect } from 'react';
 import ItemList from '../ItemList';
 import Products from '../../mocks/products';
 
-// import ItemCount from "../ItemCount";
 import "./itemListContainer.css";
 
 function ItemListContainer ({greeting,categoryId, isCategoryRoute}){
-    // const handleAddToCart = (count) => {
-    //     console.log(`Se agregaron ${count} elementos al carrito.`);
-    //   }
-
 
     const [items, setItems] = useState([]);
 
@@ -33,9 +28,7 @@ function ItemListContainer ({greeting,categoryId, isCategoryRoute}){
      <div>
         <div className="greeting">{greeting}</div>
   
-          {/* <p>Aquí van los productos...</p>
-          <ItemCount stock={10} initial={1} onAdd={handleAddToCart} /> */}
-       <div>
+        <div>
           <h2>Productos</h2>
           <ItemList items={items} />
         </div>

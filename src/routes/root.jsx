@@ -1,5 +1,5 @@
 import ItemListContainer from '../componentes/ItemListContainer';
-import NavBar from '../componentes/NavBar';
+
 import { useParams } from 'react-router-dom';
 
 import './routes.css'
@@ -15,9 +15,7 @@ function Root() {
    
         <div>
     
-          <NavBar className="nav-bar-styles" />
-
-       
+            
           <ItemListContainer isCategoryRoute={isCategoryRoute} 
           categoryId={params.id} greeting={"Tienda Virtual"}/>
   

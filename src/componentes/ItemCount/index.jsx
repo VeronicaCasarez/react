@@ -1,32 +1,42 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { Button } from 'react-bootstrap';
+import "./ItemCount.css"
+import { CartContext } from '../../context';
 
-const ItemCount = ({ stock, initial, onAdd }) => {
-  const [count, setCount] = useState(initial);
+
+
+
+const ItemCount = ({ stock }) => {
+
+
+  const [count, setCount] = useState(1);
+  const { addItem } = useContext(CartContext);
+
+
 
   const handleIncrement = () => {
     if (count < stock) {
       setCount(count + 1);
+     
     }
   };
 
   const handleDecrement = () => {
     if (count > 1) {
       setCount(count - 1);
+   
     }
   };
 
-  const handleAdd = () => {
-    onAdd(count);
-  };
 
   return (
     <div>
-      <button onClick={handleDecrement}>-</button>
+      <Button  variant="outline-dark" className='my-btn' onClick={handleDecrement}>-</Button>
       <span>{count}</span>
-      <button onClick={handleIncrement}>+</button>
-      <button onClick={handleAdd} disabled={stock === 0}>
+      <Button variant="outline-dark" className='my-btn' onClick={handleIncrement}>+</Button>
+      <Button variant="outline-dark" className='my-btn' onClick={() => addItem(count)} disabled={stock === 0}>
         Agregar al carrito
-      </button>
+      </Button>
       {stock === 0 && <p>No hay stock disponible</p>}
     </div>
   );

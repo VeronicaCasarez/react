@@ -18,7 +18,7 @@ export default[
         price:62500,
         stock:25,
         image:product1,
-        category:"nike",
+        category:"chocolates",
         },
         {
         id:2,
@@ -28,7 +28,7 @@ export default[
         price:62500,
         stock:25,
         image:product2,
-        category:"nike",
+        category:"chocolates",
        },
        {
         id:3,
@@ -38,7 +38,7 @@ export default[
         price:62500,
         stock:25,
         image:product3,
-        category:"nike",
+        category:"chocolates",
        },
        {
         id:4,
@@ -48,7 +48,7 @@ export default[
         price:62500,
         stock:25,
         image:product4,
-        category:"nike",
+        category:"chocolates",
        },
        {
         id:5,
@@ -58,7 +58,7 @@ export default[
         price:62500,
         stock:25,
         image:product5,
-        category:"nike",
+        category:"chocolates",
        },
        {
         id:6,
@@ -68,7 +68,7 @@ export default[
         price:62500,
         stock:25,
         image:product6,
-        category:"nike",
+        category:"chocolates",
        },
 
        {
@@ -79,7 +79,7 @@ export default[
         price:62500,
         stock:25,
         image:product7,
-        category:"puma",
+        category:"alfajores",
        },
        {
         id:8,
@@ -89,7 +89,7 @@ export default[
         price:62500,
         stock:25,
         image:product8,
-        category:"puma",
+        category:"alfajores",
        },
        {
         id:9,
@@ -99,6 +99,6 @@ export default[
         price:62500,
         stock:25,
         image:product9,
-        category:"puma",
+        category:"patagonicos",
        }
 ]
