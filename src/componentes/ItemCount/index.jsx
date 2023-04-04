@@ -4,19 +4,18 @@ import "./ItemCount.css"
 import { CartContext } from '../../context';
 
 
-
-
 const ItemCount = ({ stock }) => {
 
 
   const [count, setCount] = useState(1);
-  const { addItem } = useContext(CartContext);
+  const { addItem,removeItem } = useContext(CartContext);
 
 
 
   const handleIncrement = () => {
     if (count < stock) {
       setCount(count + 1);
+      addItem(setCount);
      
     }
   };
@@ -24,6 +23,7 @@ const ItemCount = ({ stock }) => {
   const handleDecrement = () => {
     if (count > 1) {
       setCount(count - 1);
+      removeItem(setCount);
    
     }
   };

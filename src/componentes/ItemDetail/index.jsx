@@ -19,19 +19,24 @@ const ItemDetail = ({ item }) => {
   };
 
   return (
-    <Card style={{ width: '18rem' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}> 
+    <Card style={{ width: '30rem' ,dispaly:'flex',justifyContent:'center' }}>
       <Card.Img variant="top" src={item.image} />
       <Card.Body>
         <Card.Title>{item.title}</Card.Title>
-        <Card.Text>{item.name}</Card.Text>
-        <ItemCount stock={item.stock}  onClick={() => handleAddToCart(cartCount)} /> 
+        <Card.Text>{item.description}</Card.Text>
+        <Card.Title className="card-detail-small">{item.detail}</Card.Title>
+        <Card.Text>Stock: {item.stock}</Card.Text>
+        <Card.Text>Precio: $ {item.price}</Card.Text>
+        <ItemCount stock={item.stock}  onClick={() => handleAddToCart(cartCount) }/> 
         <br />
-        <Link to="/cart"><Button variant="primary" >
+        <Link to="/cart"><Button  variant="dark">
        Terminar mi compra
         </Button></Link>
         
       </Card.Body>
     </Card>
+    </div>
   );
 };
 

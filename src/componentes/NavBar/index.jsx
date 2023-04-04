@@ -17,16 +17,21 @@ function NavBar(){
           <Navbar.Brand href="#home"><NavLink to={'/'} ><img className="logo-style" src={logo} alt="Logo" /></NavLink> </Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link >
-              <NavLink to={'/category/chocolates'}>Chocolates</NavLink>
+              <NavLink to={'/category/chocolates'} className="nav-bar">Chocolates</NavLink>
             </Nav.Link>
             <Nav.Link >
-              <NavLink to={'/category/alfajores'}>Alfajores</NavLink>
+              <NavLink to={'/category/alfajores'} className="nav-bar">Alfajores</NavLink>
             </Nav.Link>
             <Nav.Link >
-              <NavLink to={'/category/patagonicos'}>Patagonicos</NavLink>
+              <NavLink to={'/category/patagonicos'}className="nav-bar">Patagonicos</NavLink>
+
             </Nav.Link>
           </Nav>
-          <CardWidget/>
+          <Nav.Link >
+              <NavLink to={'/cart'}className="nav-bar"> <CardWidget/></NavLink>
+          </Nav.Link>
+         
+
         </Container>
       </Navbar>
           

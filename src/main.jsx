@@ -4,7 +4,8 @@ import Root from './routes/root';
 import ItemRoot from './routes/itemRoot';
 import './index.css';
 import Layout from './componentes/Layout';
-import Cart  from './routes/Cart';
+import Cart from './routes/Cart';
+
 
 import { CartProvider } from '../src/context/index';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,6 +16,23 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyABCtUIbO0BW6qP6go6UF07MKN7UyQcnY8",
+  authDomain: "ecommercecasarez.firebaseapp.com",
+  projectId: "ecommercecasarez",
+  storageBucket: "ecommercecasarez.appspot.com",
+  messagingSenderId: "178593045051",
+  appId: "1:178593045051:web:59660b2b0dd3f452471a1e"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
 const router = createBrowserRouter([
  {element: <Layout/>,
@@ -37,7 +55,7 @@ const router = createBrowserRouter([
 },
 {
   path: "/checkout",
-  element: <div>Hello world!</div>,
+  element: <div></div>,
 }
  ]
 }
