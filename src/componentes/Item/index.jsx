@@ -9,15 +9,16 @@ import Card from 'react-bootstrap/Card';
 const Item = ({ item}) => {
   return (
     <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={item.image} />
+      <Link to={`/item/${item.id}`}> 
+        <Card.Img variant="top" src={item.image}title="Ver detalle"/>
+      </Link>
       <Card.Body>
         <Card.Title>{item.title}</Card.Title>
         <Card.Text>{item.name}</Card.Text>
         <Card.Text>Precio: $ {item.price}</Card.Text>
         <Button variant="dark" as={Link} to={`/item/${item.id}`}>
-         Ver detalle
+          Ver detalle
         </Button>
-
       </Card.Body>
     </Card>
   );

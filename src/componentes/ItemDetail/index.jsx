@@ -14,7 +14,7 @@ const ItemDetail = ({ item }) => {
     addItem(item,count)
     setCartCount(count);
    
-      console.log(`Se agregaron ${count} elementos al carrito.`);
+      console.log(`Se agregaron ${cartCount} elementos al carrito.`);
    
   };
 

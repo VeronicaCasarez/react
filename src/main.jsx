@@ -4,7 +4,7 @@ import Root from './routes/root';
 import ItemRoot from './routes/itemRoot';
 import './index.css';
 import Layout from './componentes/Layout';
-import Cart from './routes/Cart';
+import Cart from './routes/cart';
 
 
 import { CartProvider } from '../src/context/index';
@@ -18,6 +18,7 @@ import {
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 

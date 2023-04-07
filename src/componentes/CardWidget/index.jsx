@@ -9,17 +9,15 @@ import { CartContext } from '../../context';
 const CardWidget = () => {
     
     const { cartItems } = useContext(CartContext);
-    
-  
+      
     return (
       <div>
-        <Link to="/cart"></Link>
-       
-        <span>{cartItems.length}</span>
-        <img className="card-img" src={imgWidget} alt="imagen del carrito" />
+        <Link to="/cart">
+          <span>{cartItems.length}</span>
+          <img className="card-img" src={imgWidget} alt="imagen del carrito" />
+        </Link>
       </div>
     );
-  };
-  
+    }
   export default CardWidget;
-
+    
