@@ -12,7 +12,7 @@ function Cart() {
     function calculateTotal() {
       let sum = 0;
       for (let i = 0; i < cartItems.length; i++) {
-        sum += cartItems[i].price * cartItems[i].quantity;
+        sum += cartItems[i].price * cartItems[i].count;
       }
       setTotal(sum);
     }
@@ -23,7 +23,7 @@ function Cart() {
   function handleQuantityChange(id, newQuantity) {
     let newCartItems = cartItems.map(item => {
       if (item.id === id) {
-        return { ...item, quantity: newQuantity };
+        return { ...item, count: newQuantity };
       } else {
         return item;
       }
@@ -60,13 +60,13 @@ function Cart() {
               <td>{item.price}</td>
               <td>
                 <ItemCount
-                  initial={item.quantity}
+                  initial={item.count}
                   min={1}
                   max={10}
                   onQuantityChange={newQuantity => handleQuantityChange(item.id, newQuantity)}
                 />
               </td>
-              <td>{item.price * item.quantity}</td>
+              <td>{item.price * item.count}</td>
               <td>
                 <button onClick={() => handleRemoveFromCart(item.id)}>Eliminar</button>
               </td>

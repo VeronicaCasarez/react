@@ -4,12 +4,13 @@ import "./ItemCount.css"
 import { CartContext } from '../../context';
 
 
-const ItemCount = ({ stock}) => {
+const ItemCount = ({ stock,addItem}) => {
+
+
+ 
 
 
   const [count, setCount] = useState(1);
-
-  const { addItem} = useContext(CartContext);
 
 
 
@@ -18,6 +19,7 @@ const ItemCount = ({ stock}) => {
    
     if (count < stock) {
       setCount(count + 1);
+      addItem(item, setCount)
      
  
      

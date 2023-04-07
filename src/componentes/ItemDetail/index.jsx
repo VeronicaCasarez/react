@@ -19,13 +19,17 @@ const ItemDetail = ({ item }) => {
    
   // };
   function onAddProduct(count){
-    setCartCount(count);
     addItem(item,count);
+    setCartCount(count);
+   
 
   }
 
   
 
+ useEffect(() => {
+   console.log(`Se agregaron ${cartCount} elementos al carrito.`); 
+  }, [addItem]); 
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
