@@ -2,8 +2,9 @@ import React, { useState, useEffect, useContext } from 'react';
 import { CartContext } from '../context/index';
 import ItemCount from '../componentes/ItemCount'; 
 
-function Cart(props) {
+function Cart() {
   const { cartItems, setCartItems } = useContext(CartContext); 
+
 
   const [total, setTotal] = useState(0);
 
