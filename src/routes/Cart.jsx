@@ -5,6 +5,8 @@ import ItemCount from '../componentes/ItemCount';
 import { Link } from 'react-router-dom';
 import "./routes.css"
 
+import { Container } from 'react-bootstrap';
+
 function Cart() {
   const { cartItems, setCartItems,count } = useContext(CartContext); 
   
@@ -48,6 +50,7 @@ function Cart() {
   // }
 
   return (
+    <Container> 
     <div>
       <table>
         <thead>
@@ -88,6 +91,7 @@ function Cart() {
       <Link to={'/Checkout'} ><button>Finalizar compra</button></Link>
     
     </div>
+    </Container>
   );
 }
 

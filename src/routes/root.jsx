@@ -10,26 +10,17 @@ function Root() {
   const isCategoryRoute=Boolean(params.id);
 
 
-    return (
+  return (
+    <div>
       <div>
-   
-        <div>
-    
-            
-          <ItemListContainer isCategoryRoute={isCategoryRoute} 
-          categoryId={params.id} greeting={"Chocolates, alfajores y productos directo de Bariloche"}/>
-  
-         
-        </div>
-         
-      </div>
-   
+        <ItemListContainer isCategoryRoute={isCategoryRoute}
+          categoryId={params.id} greeting={"Chocolates, alfajores y productos directo de Bariloche"} />
 
-   
-  
-    );
-  
-    }
+      </div>
+    </div>
+  );
+
+}
 
 
 export default Root;

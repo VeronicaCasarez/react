@@ -1,33 +1,23 @@
 import React, { useContext, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import "./ItemCount.css"
-import { CartContext } from '../../context';
 
 
 const ItemCount = ({ stock,addItem}) => {
 
-
   const [count, setCount] = useState(1);
  
-
-
-
-
   const handleIncrement = () => {
    
     if (count < stock) {
       setCount(count + 1);
       addItem(item, setCount)
-     
- 
-     
     }
   };
 
   const handleDecrement = () => {
     if (count > 1) {
       setCount(count - 1);
-   
     }
   };
 
