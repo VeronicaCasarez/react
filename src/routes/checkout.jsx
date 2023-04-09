@@ -11,8 +11,8 @@ function Checkout() {
   const db = getFirestore();
 
   function updateProductStock(productId, newStock) {
-    const productRef = doc(db, "products", productId);
-    updateDoc(productRef, { stock: newStock }).catch((error) => console.log({ error }));
+    const productRef = doc(db, "items", productId);
+    updateDoc(productRef, { stock: newStock });
   }
 
   function placeOrder() {
@@ -23,7 +23,7 @@ function Checkout() {
     );
 
     const order = {
-      buyer: { name, email, phone }, // Obtener los valores de los inputs
+      buyer: { name, email, phone },
       items: cartItems,
       total,
     };
@@ -31,10 +31,13 @@ function Checkout() {
     addDoc(collectionRef, order)
       .then(() => {
         cartItems.map((product) => {
-          const newStock = product.stock - product.quantity;
+          const newStock = product.stock - product.count;
           updateProductStock(product.id, newStock);
         });
         setCartItems([]); 
+        setName('');
+        setPhone(''); 
+        setEmail(''); 
       })
       .catch((error) => console.log({ error }));
   }
