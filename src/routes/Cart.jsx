@@ -8,10 +8,8 @@ import "./routes.css"
 import { Container } from 'react-bootstrap';
 
 function Cart() {
-  const { cartItems, setCartItems,count } = useContext(CartContext); 
   
-
-
+  const { cartItems, setCartItems } = useContext(CartContext); 
 
   const [total, setTotal] = useState(0);
 
@@ -45,9 +43,7 @@ function Cart() {
     setCartItems(newCartItems);
   }
 
-  // function handleCheckout() {
-  //   props.history.push('/checkout');
-  // }
+
 
   return (
     <Container> 
@@ -72,6 +68,7 @@ function Cart() {
                  stock={item.stock}
                 
                  addItem={newQuantity => handleQuantityChange(item.id, newQuantity)}
+                initialValue={item.count}
                 /> 
          
               </td>
@@ -96,74 +93,3 @@ function Cart() {
 }
 
 export default Cart;
-
-
-
-// import React, { useState, useEffect, useContext } from 'react';
-// import { CartContext } from '../context/index';
-
-// function Cart(props) {
-//   const { cartItems, setCartItems } = useContext(CartContext); 
-//   const [total, setTotal] = useState(0);
-
-//   useEffect(() => {
-//     function calculateTotal() {
-//       let sum = 0;
-//       for (let i = 0; i < cartItems.length; i++) {
-//         sum += cartItems[i].price * cartItems[i].quantity;
-//       }
-//       setTotal(sum);
-//     }
-
-//     calculateTotal();
-//   }, [cartItems]);
-
-//   function handleQuantityChange(id, newQuantity) {
-//     let newCartItems = cartItems.map(item => {
-//       if (item.id === id) {
-//         return { ...item, quantity: newQuantity };
-//       } else {
-//         return item;
-//       }
-//     });
-//     setCartItems(newCartItems);
-//   }
-
-//   function handleCheckout() {
-//     props.history.push('/checkout');
-//   }
-
-//   return (
-//     <div>
-//       <table>
-//         <thead>
-//           <tr>
-//             <th>Producto</th>
-//             <th>Precio</th>
-//             <th>Cantidad</th>
-//             <th>Total</th>
-//           </tr>
-//         </thead>
-//         <tbody>
-//           {cartItems.map(item => (
-//             <tr key={item.id}>
-//               <td>{item.name}</td>
-//               <td>{item.price}</td>
-//               <td>
-//                 <input type="number" min="1" value={item.quantity} onChange={event => handleQuantityChange(item.id, event.target.value)} />
-//               </td>
-//               <td>{item.price * item.quantity}</td>
-//             </tr>
-//           ))}
-//           <tr>
-//             <td colSpan="3">Total:</td>
-//             <td>{total}</td>
-//           </tr>
-//         </tbody>
-//       </table>
-//       <button onClick={handleCheckout}>Finalizar compra</button>
-//     </div>
-//   );
-// }
-
-// export default Cart;

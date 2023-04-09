@@ -3,8 +3,6 @@
 
 }
 .nav-bar{
-  text-decoration: none;
- 
-  
- 
+  all: unset;
+
 }

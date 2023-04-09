@@ -9,7 +9,6 @@ function Root() {
   const params = useParams();
   const isCategoryRoute=Boolean(params.id);
 
-
   return (
     <div>
       <div>

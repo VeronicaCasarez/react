@@ -34,7 +34,7 @@ function ItemListContainer({ greeting, categoryId, isCategoryRoute }) {
             }))
           );
         })
-        .catch((error) => console.log(error));
+        .catch((error) => alert(error));
     }
   }, [categoryId, isCategoryRoute]);
 

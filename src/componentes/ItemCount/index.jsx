@@ -1,11 +1,13 @@
-import React, { useContext, useState } from 'react';
+import React, {  useState } from 'react';
 import { Button } from 'react-bootstrap';
 import "./ItemCount.css"
 
 
-const ItemCount = ({ stock,addItem}) => {
+const ItemCount = ({ stock,addItem,initialValue}) => {
 
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(initialValue);
+
+   
  
   const handleIncrement = () => {
    

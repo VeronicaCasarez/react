@@ -1,9 +1,7 @@
-
 import {useParams} from 'react-router-dom';
 import ItemDetailContainer from "../componentes/ItemDetailContainer";
 import { useContext } from 'react';
 import {CartContext} from '../../src/context/index'
-
 
 
 function ItemRoot(){
@@ -12,12 +10,10 @@ function ItemRoot(){
 
         return (
             <div>
-               
-                
+
                 <h1>Estas en el detalle del producto</h1>
                 <ItemDetailContainer itemId={parameters.id}/>
-               
-                           
+       
             </div>
     )
 }

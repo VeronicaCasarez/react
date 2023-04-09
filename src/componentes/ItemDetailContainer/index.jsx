@@ -18,7 +18,7 @@ function ItemDetailContainer() {
           setProduct({ id: snapshot.id, ...snapshot.data() });
         }
       })
-      .catch((error) => console.log({ error }));
+      .catch((error) =>console.log({ error }));
   }, [id]);
 
   if (!product) {

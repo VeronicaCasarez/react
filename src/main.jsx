@@ -6,6 +6,7 @@ import './index.css';
 import Layout from './componentes/Layout';
 import Cart from './routes/cart';
 import Checkout from './routes/checkout';
+import ErrorPage from './routes/error';
 
 
 import { CartProvider } from '../src/context/index';
@@ -17,13 +18,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_apiKey,
   authDomain: import.meta.env.VITE_authDomain,
@@ -33,21 +29,23 @@ const firebaseConfig = {
   appId:import.meta.env.VITE_appId,
 };
 
-// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
 
 const router = createBrowserRouter([
- {element: <Layout/>,
+ {path:'/',
+  errorElement:<ErrorPage/>,
+  element: <Layout/>,
  children: [
-  {//este es el home
+  {
   path: "/",
   element: <Root/>,
 },
-{//estas son las categorias ejemplo chocolate, alfajores, productos de la patagonia
+{
   path: "/category/:id",
   element: <Root/>,
 },
-{//este es el detalle de cada producto
+{
   path: "/item/:id",
   element: <ItemRoot/>,
 },

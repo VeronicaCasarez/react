@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '../../context';
 
 const ItemDetail = ({ item }) => {
-  console.log(item)
+
   const {addItem}=useContext(CartContext)
 
   const [cartCount, setCartCount] = useState(0);
@@ -17,8 +17,6 @@ const ItemDetail = ({ item }) => {
     setCartCount(count);
 
   }
-
-  
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -32,7 +30,7 @@ const ItemDetail = ({ item }) => {
           <Card.Text>Precio: $ {item.price}</Card.Text>
           <div>
             {cartCount === 0 && (
-              <ItemCount stock={item.stock} addItem={onAddProduct} />
+              <ItemCount stock={item.stock} addItem={onAddProduct} initialValue={1} />
             )}
 
             <Link to="/cart">
