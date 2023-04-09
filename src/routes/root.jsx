@@ -17,7 +17,7 @@ function Root() {
     
             
           <ItemListContainer isCategoryRoute={isCategoryRoute} 
-          categoryId={params.id} greeting={"Chocolates, alfajores y productos directo de bariloche"}/>
+          categoryId={params.id} greeting={"Chocolates, alfajores y productos directo de Bariloche"}/>
   
          
         </div>

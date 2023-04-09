@@ -5,6 +5,7 @@ import ItemRoot from './routes/itemRoot';
 import './index.css';
 import Layout from './componentes/Layout';
 import Cart from './routes/cart';
+import Checkout from './routes/checkout';
 
 
 import { CartProvider } from '../src/context/index';
@@ -56,7 +57,7 @@ const router = createBrowserRouter([
 },
 {
   path: "/checkout",
-  element: <div></div>,
+  element: <Checkout/>,
 }
  ]
 }

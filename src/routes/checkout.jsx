@@ -1,73 +1,62 @@
-// import React, { useState } from 'react';
-// import firebase from 'firebase/app';
-// import 'firebase/firestore';
+import React, { useState,useContext } from 'react';
+import { collection, addDoc, getFirestore, updateDoc, doc } from 'firebase/firestore';
+import { CartContext } from '../context';
+import { Container,Button } from 'react-bootstrap';
 
-// function Checkout(props) {
-//   const [name, setName] = useState('');
-//   const [phone, setPhone] = useState('');
-//   const [email, setEmail] = useState('');
+function Checkout() {
+  const { cartItems, setCartItems } = useContext(CartContext);
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const db = getFirestore();
 
-//   function handleNameChange(event) {
-//     setName(event.target.value);
-//   }
+  function updateProductStock(productId, newStock) {
+    const productRef = doc(db, "products", productId);
+    updateDoc(productRef, { stock: newStock }).catch((error) => console.log({ error }));
+  }
 
-//   function handlePhoneChange(event) {
-//     setPhone(event.target.value);
-//   }
+  function placeOrder() {
+    const collectionRef = collection(db, "orders");
+    const total = cartItems.reduce(
+      (acc, product) => acc + product.count * product.price,
+      0
+    );
 
-//   function handleEmailChange(event) {
-//     setEmail(event.target.value);
-//   }
+    const order = {
+      buyer: { name, email, phone }, // Obtener los valores de los inputs
+      items: cartItems,
+      total,
+    };
 
-//   function handleSubmit(event) {
-//     event.preventDefault();
-//     const db = firebase.firestore();
-//     const newOrderRef = db.collection('orders').doc();
-//     const newOrder = {
-//       name,
-//       phone,
-//       email,
-//       products: props.products.map(product => ({
-//         id: product.id,
-//         name: product.name,
-//         price: product.price,
-//         quantity: product.quantity
-//       })),
-//       total: props.total
-//     };
-//     newOrderRef.set(newOrder)
-//       .then(() => {
-//         alert(`¡Gracias por tu compra! Tu número de orden es ${newOrderRef.id}.`);
-//         props.history.push('/');
-//       })
-//       .catch(error => {
-//         alert(`Ha ocurrido un error al procesar tu compra: ${error.message}`);
-//       });
-//   }
+    addDoc(collectionRef, order)
+      .then(() => {
+        cartItems.map((product) => {
+          const newStock = product.stock - product.quantity;
+          updateProductStock(product.id, newStock);
+        });
+        setCartItems([]); 
+      })
+      .catch((error) => console.log({ error }));
+  }
 
-//   return (
-//     <div>
-//       <h2>Confirmar compra</h2>
-//       <form onSubmit={handleSubmit}>
-//         <label>
-//           Nombre:
-//           <input type="text" value={name} onChange={handleNameChange} />
-//         </label>
-//         <br />
-//         <label>
-//           Teléfono:
-//           <input type="text" value={phone} onChange={handlePhoneChange} />
-//         </label>
-//         <br />
-//         <label>
-//           Correo electrónico:
-//           <input type="email" value={email} onChange={handleEmailChange} />
-//         </label>
-//         <br />
-//         <button type="submit">Confirmar compra</button>
-//       </form>
-//     </div>
-//   );
-// }
+  return (
+    <Container className="cart-container">
+      {cartItems.map((product) => (
+        <div key={product.id}>
+          <span>Name: {product.title}</span>
+          <br />
+          <span>Quantity: {product.count}</span>
+        </div>
+      ))}
+      <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Nombre" /> {/* Input para el nombre */}
+      <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Teléfono" /> {/* Input para el teléfono */}
+      <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" /> {/* Input para el email */}
+      <Button variant="dark" onClick={placeOrder}>Comprar</Button>
+    </Container>
+  );
+}
 
-// export default Checkout;
+export default Checkout;
+
+
+

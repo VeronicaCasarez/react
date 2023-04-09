@@ -1,28 +1,39 @@
-import React, { createContext, useState,useEffect } from 'react';
+import React, { createContext, useState } from 'react';
 
 export const CartContext = createContext([]);
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
  
+  const addItem = (item, count) => {
+    // Verificar si el producto ya está en el carrito
+    const existingItemIndex = cartItems.findIndex(cartItem => cartItem.id === item.id);
 
-  const addItem = (item,count) => {
+    if (existingItemIndex !== -1) {
+      // Si el producto ya está en el carrito, actualizar su cantidad
+      const updatedCartItems = [...cartItems];
+      updatedCartItems[existingItemIndex].count += count;
+      setCartItems(updatedCartItems);
+    } else {
+      // Si el producto no está en el carrito, agregarlo
+      setCartItems(prevState => [...prevState, { ...item, count }]);
+    }
+  };
+
+  // const addItem = (item,count) => {
            
-    setCartItems((prevState)=>prevState.concat({...item,count}));
+  //   setCartItems((prevState)=>prevState.concat({...item,count}));
 
  
-    };
+  //   };
 
   const removeItem = () => {
-    //setCartItems(cartItems.filter((item) => item.id !== id));
+   
     const tempCart=cartItems.slice(1);
     setCartItems(tempCart)
   };
 
-// ELIMINAR ESTE USE EFFECT. es solo para control
-  useEffect(() => {
-  console.log({ cartItems }); 
- }, [cartItems]);
+
 
   return (
     <CartContext.Provider value={{ cartItems, addItem, removeItem,setCartItems }}>

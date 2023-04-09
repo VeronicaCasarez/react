@@ -1,4 +1,4 @@
-import React, { useContext, useState,useEffect } from 'react';
+import React, { useContext, useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ItemCount from '../ItemCount';
@@ -11,25 +11,14 @@ const ItemDetail = ({ item }) => {
 
   const [cartCount, setCartCount] = useState(0);
 
-  // const handleAddToCart = (count) => {
-   
-  //   setCartCount(count);
-  //   addItem(item,count)
-  //     console.log(`Se agregaron ${item} elementos al carrito.`);
-   
-  // };
+
   function onAddProduct(count){
     addItem(item,count);
     setCartCount(count);
-   
 
   }
 
   
-
- useEffect(() => {
-   console.log(`Se agregaron ${cartCount} elementos al carrito.`); 
-  }, [addItem]); 
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -48,7 +37,7 @@ const ItemDetail = ({ item }) => {
 
             <Link to="/cart">
               <Button variant="dark">
-                Terminar mi compra
+                Ir al carrito
               </Button>
             </Link>
 

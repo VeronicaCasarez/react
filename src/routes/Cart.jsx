@@ -2,21 +2,27 @@ import React, { useState, useEffect, useContext } from 'react';
 import { CartContext } from '../context/index';
 import ItemCount from '../componentes/ItemCount'; 
 
+import { Link } from 'react-router-dom';
+import "./routes.css"
+
 function Cart() {
-  const { cartItems, setCartItems } = useContext(CartContext); 
+  const { cartItems, setCartItems,count } = useContext(CartContext); 
+  
+
 
 
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    function calculateTotal() {
-      let sum = 0;
-      for (let i = 0; i < cartItems.length; i++) {
-        sum += cartItems[i].price * cartItems[i].count;
-      }
+
+    const calculateTotal = () => {
+     
+      const sum = cartItems.reduce((accumulator, item) => {
+        return accumulator + (item.price * item.count);
+      }, 0);
       setTotal(sum);
     }
-
+   
     calculateTotal();
   }, [cartItems]);
 
@@ -37,9 +43,9 @@ function Cart() {
     setCartItems(newCartItems);
   }
 
-  function handleCheckout() {
-    props.history.push('/checkout');
-  }
+  // function handleCheckout() {
+  //   props.history.push('/checkout');
+  // }
 
   return (
     <div>
@@ -60,11 +66,11 @@ function Cart() {
               <td>{item.price}</td>
               <td>
                 <ItemCount
-                  initial={item.count}
-                  min={1}
-                  max={10}
-                  onQuantityChange={newQuantity => handleQuantityChange(item.id, newQuantity)}
-                />
+                 stock={item.stock}
+                
+                 addItem={newQuantity => handleQuantityChange(item.id, newQuantity)}
+                /> 
+         
               </td>
               <td>{item.price * item.count}</td>
               <td>
@@ -79,7 +85,8 @@ function Cart() {
           </tr>
         </tbody>
       </table>
-      <button onClick={handleCheckout}>Finalizar compra</button>
+      <Link to={'/Checkout'} ><button>Finalizar compra</button></Link>
+    
     </div>
   );
 }
