@@ -2,7 +2,7 @@ import React, {  useState } from 'react';
 import { Button } from 'react-bootstrap';
 
 
-import "./ItemCount.css"
+import "./itemCount.css"
 
 
 const ItemCount = ({ stock,addItem,initialValue}) => {
