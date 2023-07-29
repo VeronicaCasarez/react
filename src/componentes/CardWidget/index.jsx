@@ -12,7 +12,7 @@ const CardWidget = () => {
       
     return (
       <div>
-        <Link to="/cart">
+        <Link  className="link-widget" to="/cart">
           <span>{cartItems.length}</span>
           <img className="card-img" src={imgWidget} alt="imagen del carrito" />
         </Link>
