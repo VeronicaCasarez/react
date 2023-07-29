@@ -1,5 +1,5 @@
 import imgWidget from "../../assets/images/shopping-cart.png";
-import "./CardWidget.css";
+import "./cardWidget.css";
 import { Link } from "react-router-dom";
 
 import React, { useContext } from 'react';
