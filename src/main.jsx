@@ -4,7 +4,7 @@ import Root from './routes/root';
 import ItemRoot from './routes/itemRoot';
 import './index.css';
 import Layout from './componentes/Layout';
-import Cart from './routes/cart';
+import Cart from './routes/Cart';
 import Checkout from './routes/checkout';
 import ErrorPage from './routes/error';
 

@@ -1,5 +1,5 @@
 import imgWidget from "../../assets/images/shopping-cart.png";
-import "./CardWidget.css";
+import "./cardWidget.css";
 import { Link } from "react-router-dom";
 
 import React, { useContext } from 'react';
@@ -12,8 +12,8 @@ const CardWidget = () => {
       
     return (
       <div>
-        <Link to="/cart">
-          <span>{cartItems.length}</span>
+        <Link  className="link-widget" to="/cart">
+          <span class="span-widget">{cartItems.length}</span>
           <img className="card-img" src={imgWidget} alt="imagen del carrito" />
         </Link>
       </div>

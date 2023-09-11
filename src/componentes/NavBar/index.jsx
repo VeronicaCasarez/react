@@ -1,5 +1,5 @@
 import CardWidget from "../CardWidget";
-import "./navBar.css";
+import "./navbar.css";
 
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';

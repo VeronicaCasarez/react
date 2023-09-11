@@ -14,3 +14,10 @@
     font-size: 1rem;
     font-weight: bold;
   }
+  .span-widget{
+    color:black;
+        
+  }
+.link-widget{
+    text-decoration: none;
+  }
